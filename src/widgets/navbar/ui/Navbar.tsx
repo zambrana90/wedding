@@ -15,7 +15,9 @@ export function Navbar() {
 
   const scrollToSection = (href: string) => {
     const targetId = href.replace("#", "");
+    console.log("targetId:", targetId);
     const element = document.getElementById(targetId);
+    console.log("element:", element);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
