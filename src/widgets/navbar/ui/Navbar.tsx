@@ -44,7 +44,7 @@ export function Navbar() {
   }, [isScrolling]);
 
   const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
+    e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
     href: string,
   ) => {
     e.preventDefault();
@@ -56,7 +56,8 @@ export function Navbar() {
       element.scrollIntoView({ behavior: "smooth" });
       setTimeout(() => setIsScrolling(false), 800);
     }
-    setMenuOpen(false);
+    // Delay menu close on mobile to ensure touch event completes on Android
+    setTimeout(() => setMenuOpen(false), 100);
   };
 
   return (
