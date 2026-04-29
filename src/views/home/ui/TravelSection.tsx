@@ -189,7 +189,7 @@ export function TravelSection() {
   return (
     <section id="travel" className="py-12 px-4 md:px-8 relative">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="font-noto-serif text-4xl md:text-5xl text-primary mb-4 italic">
             Transporte y Alojamiento
           </h2>

@@ -126,7 +126,7 @@ export function Navbar() {
 
       {menuOpen && (
         <div className="md:hidden bg-white border-t border-secondary/30">
-          <div className="px-6 py-4 flex flex-col gap-4">
+          <div className="px-6 py-4 flex flex-col gap-6">
             {navLinks.map(({ label, href }) => (
               <a
                 key={label}

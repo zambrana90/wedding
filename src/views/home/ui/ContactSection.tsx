@@ -26,7 +26,7 @@ export function ContactSection() {
               className="w-full flex items-center justify-center gap-2 py-4 px-8 rounded-lg font-sans font-medium uppercase tracking-wider text-sm bg-primary text-on-primary hover:bg-primary/90 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
             >
               <ExternalLink className="w-4 h-4" />
-              Abrir formulario de asistencia
+              Abrir formulario
             </a>
           </div>
         </div>

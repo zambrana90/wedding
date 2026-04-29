@@ -35,8 +35,7 @@ const timelineItems = [
         especial hasta la fecha.
         <br />
         <br />
-        El siguiente lo compartiremos con toda nuestra gente. Gracias por formar
-        parte de esta historia.
+        El siguiente lo compartiremos con toda nuestra gente.
       </>
     ),
     image: "/2025.jpg",
@@ -48,7 +47,7 @@ export function OurStorySection() {
   return (
     <section id="our-story" className="py-12 px-4 md:px-8 relative">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="font-noto-serif text-4xl md:text-5xl text-primary mb-4 italic">
             Nuestra Historia
           </h2>
@@ -104,23 +103,11 @@ export function OurStorySection() {
         </div>
 
         <div className="text-center mt-16 bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-3xl shadow-sm border border-white relative">
-          <h2 className="font-noto-serif text-2xl md:text-3xl text-primary italic mb-6">
+          <h2 className="font-noto-serif text-xl md:text-2xl text-primary italic">
             &ldquo;Pase lo que pase, te elegiré. Te elegiré una y otra vez, sin
             dudarlo, sin pensarlo&rdquo;
           </h2>
-          <p className="text-label-sm text-secondary uppercase tracking-widest">
-            — Nuestra promesa
-          </p>
         </div>
-
-        {/* <div className="text-center mt-16 bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-3xl shadow-sm border border-white relative">
-          <h2 className="font-noto-serif text-2xl md:text-3xl text-primary italic mb-6">
-            &ldquo;El siguiente lo compartiremos con nuestra gente más querida&rdquo;
-          </h2>
-          <p className="text-label-sm text-secondary uppercase tracking-widest">
-            — Gracias por formar parte de esta historia
-          </p>
-        </div> */}
       </div>
     </section>
   );

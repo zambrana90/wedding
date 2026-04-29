@@ -18,7 +18,7 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 text-center px-4 md:px-8 max-w-4xl mx-auto flex flex-col">
-        <span className="text-label-sm text-on-surface-variant uppercase tracking-widest mb-6 block">
+        <span className="text-label-md text-on-surface-variant uppercase tracking-widest mb-6 block">
           ¡Nos casamos!
         </span>
         <h1 className="font-noto-serif text-5xl md:text-display-lg text-primary mb-8 leading-tight">
@@ -27,10 +27,13 @@ export function HeroSection() {
           Israel
         </h1>
         <p className="text-body-lg text-on-surface-variant max-w-3xl mx-auto mb-12">
-          Y nos encantaría celebrarlo con vosotros el próximo 28 de Agosto de 2026.
+          Y nos encantaría celebrarlo con vosotros el próximo 28 de Agosto de
+          2026.
           <br className="hidden md:block" />
-          <span className="hidden md:inline">Acompáñanos en este día inolvidable lleno de alegría, risas y hermosos
-          recuerdos.</span>
+          <span className="hidden md:inline">
+            Acompáñanos en este día inolvidable lleno de alegría, risas y
+            hermosos recuerdos.
+          </span>
         </p>
       </div>
 
