@@ -79,6 +79,7 @@ export function OurStorySection() {
                     src={item.image}
                     width={400}
                     height={500}
+                    loading="lazy"
                   />
                 </div>
               </div>

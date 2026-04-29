@@ -13,6 +13,7 @@ export function HeroSection() {
           className="w-full h-full object-cover object-center opacity-70"
           src="/proposal-photo.png"
           fill
+          priority
         />
         <div className="absolute inset-0 bg-linear-to-b from-background/40 via-transparent to-background"></div>
       </div>

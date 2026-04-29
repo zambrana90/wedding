@@ -288,6 +288,7 @@ export function TravelSection() {
                       src={acc.image}
                       width={400}
                       height={300}
+                      loading="lazy"
                     />
                     <div className="absolute top-4 left-4 bg-surface/90 backdrop-blur text-primary px-3 py-1 rounded-full text-xs font-medium shadow-sm flex items-center gap-1">
                       {acc.type === "hotel" ? (

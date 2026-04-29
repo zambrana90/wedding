@@ -18,7 +18,7 @@ export function ProgramSection() {
               src="/program.png"
               width={1200}
               height={800}
-              priority
+              loading="lazy"
             />
           </div>
         </div>
