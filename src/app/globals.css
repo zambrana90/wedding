@@ -136,6 +136,8 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Offset for fixed navbar - add space above section content */
 section[id] {
-  scroll-margin-top: 60px;
+  padding-top: 100px;
+  margin-top: -60px;
 }
