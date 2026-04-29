@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -13,14 +13,14 @@ const navLinks = [
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [isScrolling, setIsScrolling] = useState(false);
+  const isScrollingRef = useRef(false);
 
   useEffect(() => {
     const sectionIds = ["home", "our-story", "program", "travel", "form"];
-    
+
     const observer = new IntersectionObserver(
       (entries) => {
-        if (isScrolling) return;
+        if (isScrollingRef.current) return;
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
@@ -41,23 +41,24 @@ export function Navbar() {
     });
 
     return () => observer.disconnect();
-  }, [isScrolling]);
+  }, []);
 
   const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
+    e: React.MouseEvent<HTMLAnchorElement>,
     href: string,
   ) => {
     e.preventDefault();
     const targetId = href.replace("#", "");
     const element = document.getElementById(targetId);
     if (element) {
-      setIsScrolling(true);
+      isScrollingRef.current = true;
       setActiveSection(targetId);
       element.scrollIntoView({ behavior: "smooth" });
-      setTimeout(() => setIsScrolling(false), 800);
+      setTimeout(() => {
+        isScrollingRef.current = false;
+      }, 800);
     }
-    // Delay menu close on mobile to ensure touch event completes on Android
-    setTimeout(() => setMenuOpen(false), 100);
+    setMenuOpen(false);
   };
 
   return (
@@ -87,10 +88,12 @@ export function Navbar() {
             e.preventDefault();
             const homeSection = document.getElementById("home");
             if (homeSection) {
-              setIsScrolling(true);
+              isScrollingRef.current = true;
               setActiveSection("home");
               homeSection.scrollIntoView({ behavior: "smooth" });
-              setTimeout(() => setIsScrolling(false), 800);
+              setTimeout(() => {
+                isScrollingRef.current = false;
+              }, 800);
             }
           }}
         >
@@ -125,26 +128,28 @@ export function Navbar() {
         </button>
       </div>
 
-      {menuOpen && (
-        <div className="md:hidden bg-white border-t border-secondary/30">
-          <div className="px-6 py-4 flex flex-col gap-6">
-            {navLinks.map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                onClick={(e) => handleNavClick(e, href)}
-                className={`font-sans tracking-widest uppercase text-xs transition-colors w-fit ${
-                  activeSection === href.replace("#", "")
-                    ? "text-primary border-b border-primary pb-1"
-                    : "text-on-surface-variant hover:text-primary"
-                }`}
-              >
-                {label}
-              </a>
-            ))}
-          </div>
+      <div
+        className={`md:hidden bg-white border-t border-secondary/30 transition-all duration-200 ease-in-out overflow-hidden ${
+          menuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="px-6 py-4 flex flex-col gap-6">
+          {navLinks.map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              onClick={(e) => handleNavClick(e, href)}
+              className={`font-sans tracking-widest uppercase text-xs transition-colors w-fit cursor-pointer ${
+                activeSection === href.replace("#", "")
+                  ? "text-primary border-b border-primary pb-1"
+                  : "text-on-surface-variant hover:text-primary"
+              }`}
+            >
+              {label}
+            </a>
+          ))}
         </div>
-      )}
+      </div>
     </nav>
   );
 }
