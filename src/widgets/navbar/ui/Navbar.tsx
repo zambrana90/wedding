@@ -151,7 +151,9 @@ export function Navbar() {
 
       <div
         className={`md:hidden bg-white border-t border-secondary/30 transition-all duration-200 ease-in-out overflow-hidden ${
-          menuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+          menuOpen
+            ? "max-h-64 opacity-100 pointer-events-auto"
+            : "max-h-0 opacity-0 pointer-events-none"
         }`}
       >
         <div className="px-6 py-4 flex flex-col gap-6">
