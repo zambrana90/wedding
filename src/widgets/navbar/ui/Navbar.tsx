@@ -49,16 +49,37 @@ export function Navbar() {
   ) => {
     e.preventDefault();
     const targetId = href.replace("#", "");
-    const element = document.getElementById(targetId);
-    if (element) {
-      isScrollingRef.current = true;
-      setActiveSection(targetId);
-      element.scrollIntoView({ behavior: "smooth" });
-      setTimeout(() => {
-        isScrollingRef.current = false;
-      }, 800);
-    }
+
+    // Close menu first on mobile
+    const wasMenuOpen = menuOpen;
     setMenuOpen(false);
+
+    // Scroll after menu closes to avoid layout shift affecting scroll position
+    if (wasMenuOpen) {
+      // Menu was open, wait for CSS transition (200ms) then scroll
+      setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          isScrollingRef.current = true;
+          setActiveSection(targetId);
+          element.scrollIntoView({ behavior: "smooth" });
+          setTimeout(() => {
+            isScrollingRef.current = false;
+          }, 800);
+        }
+      }, 250);
+    } else {
+      // Menu was closed, scroll immediately
+      const element = document.getElementById(targetId);
+      if (element) {
+        isScrollingRef.current = true;
+        setActiveSection(targetId);
+        element.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+          isScrollingRef.current = false;
+        }, 800);
+      }
+    }
   };
 
   return (
