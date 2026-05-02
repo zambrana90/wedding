@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { Heart } from "lucide-react";
 import { WaveTransition } from "@/shared/ui/WaveTransition";
 import { HomePage } from "@/views/home";
+import Image from "next/image";
 
 interface EnvelopePageProps {
   onOpen?: () => void;
@@ -37,15 +38,15 @@ export function EnvelopePage({ onOpen }: EnvelopePageProps) {
 
     setTimeout(() => {
       setWaveActive(true);
-    }, 2000);
-
-    setTimeout(() => {
-      setShowHome(true);
     }, 3000);
 
     setTimeout(() => {
+      setShowHome(true);
+    }, 4000);
+
+    setTimeout(() => {
       setHideEnvelope(true);
-    }, 3500);
+    }, 4500);
   }
 
   return (
@@ -68,16 +69,16 @@ export function EnvelopePage({ onOpen }: EnvelopePageProps) {
 
               <div
                 ref={cardRef}
-                className="card-insert absolute left-4 right-4 bottom-4 top-4 bg-surface rounded-DEFAULT shadow-sm z-20 flex flex-col items-center justify-center border border-outline-variant p-6 text-center"
+                className="card-insert absolute left-4 right-4 bottom-4 top-4 rounded-DEFAULT z-20 flex flex-col items-center justify-center overflow-hidden border-0"
               >
-                <span className="font-headline-md text-headline-md text-primary mb-2">
-                  A &amp; I
-                </span>
-                <span
-                  className={`font-label-sm text-label-sm text-on-surface-variant tracking-widest uppercase transition-opacity duration-500 ${showMessage ? "opacity-100" : "opacity-0"}`}
-                >
-                  Gracias por formar parte de esta historia
-                </span>
+                <Image
+                  src="/invitacion.png"
+                  alt="Invitación de boda"
+                  fill
+                  priority
+                  sizes="(max-width: 640px) 300px, (max-width: 768px) 400px, 500px"
+                  className={`w-full h-full object-contain transition-opacity duration-500 border-0 ${showMessage ? "opacity-100" : "opacity-0"}`}
+                />
               </div>
 
               <div

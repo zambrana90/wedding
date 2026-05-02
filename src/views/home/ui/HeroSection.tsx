@@ -11,9 +11,10 @@ export function HeroSection() {
         <Image
           alt="A beautiful proposal at sunset"
           className="w-full h-full object-cover object-center opacity-70"
-          src="/proposal-photo.png"
+          src="/pedida.png"
           fill
           priority
+          sizes="(max-width: 768px) 100vw, 80vw"
         />
         <div className="absolute inset-0 bg-linear-to-b from-background/40 via-transparent to-background"></div>
       </div>
