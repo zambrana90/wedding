@@ -16,8 +16,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Aitana & Israel",
-  description: "Has sido invitado a celebrar la boda de Aitana & Israel",
+  title: "Boda Aitana & Israel",
+  description: "28 de Agosto de 2026",
 };
 
 export default function RootLayout({
