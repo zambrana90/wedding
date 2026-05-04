@@ -16,8 +16,8 @@ export function Navbar() {
   return (
     <>
       <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-secondary/30 shadow-sm">
-        <div className="flex justify-between items-center px-6 md:px-12 py-4 w-full max-w-screen-2xl mx-auto">
-          <div className="hidden md:flex items-center justify-start space-x-8 flex-1">
+        <div className="flex justify-between items-center px-6 nav:px-12 py-4 w-full max-w-screen-2xl mx-auto">
+          <div className="hidden nav:flex items-center justify-start space-x-8 flex-1">
             {navLinks.slice(0, 2).map(({ label, href }) => (
               <a
                 key={label}
@@ -33,7 +33,7 @@ export function Navbar() {
             A<span className="italic">&</span>I
           </a>
 
-          <div className="hidden md:flex items-center justify-end space-x-8 flex-1">
+          <div className="hidden nav:flex items-center justify-end space-x-8 flex-1">
             {navLinks.slice(2).map(({ label, href }) => (
               <a
                 key={label}
@@ -46,7 +46,7 @@ export function Navbar() {
           </div>
 
           <button
-            className="md:hidden text-primary p-2 -mr-2"
+            className="nav:hidden text-primary p-2 -mr-2"
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
           >
@@ -56,7 +56,7 @@ export function Navbar() {
       </nav>
 
       {menuOpen && (
-        <div className="fixed inset-0 z-50 bg-white md:hidden">
+        <div className="fixed inset-0 z-50 bg-white nav:hidden">
           <div className="flex justify-end px-6 py-4">
             <button
               className="text-primary p-2 -mr-2"
